@@ -1,0 +1,56 @@
+[
+	// Comentario de una sola línea al final de una sentencia (var abc = 123; // Comentario)
+	{ "keys": [" "], "command": "phpdocs", "args": { "insert": "comment-after-sentence" },
+		"context": [
+			{ "key": "setting.auto_indent", "operator": "equal", "operand": true, "match_all": true},
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "auto_complete_visible", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "source.php", "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "^\\s*.+;$", "match_all": true }
+		]
+	},
+
+	// Abrir un comentario de una sola línea con la barra espaciadora (/** */)
+	{ "keys": [" "], "command": "phpdocs", "args": { "insert": "comment-inline" },
+		"context": [
+			{ "key": "setting.auto_indent", "operator": "equal", "operand": true, "match_all": true},
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "auto_complete_visible", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "source.php", "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "^\\s*\\/\\*{2}$", "match_all": true }
+		]
+	},
+
+	// Abrir un comentario multi línea con tab (/**)
+	{ "keys": ["tab"], "command": "phpdocs", "args": { "insert": "comment-multiline" },
+		"context": [
+			{ "key": "setting.auto_indent", "operator": "equal", "operand": true, "match_all": true},
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "auto_complete_visible", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "source.php", "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "^\\s*\\/\\*{2}$", "match_all": true }
+		]
+	},
+
+	// Abrir un comentario multi línea con enter (/**)
+	{ "keys": ["enter"], "command": "phpdocs", "args": { "insert": "comment-multiline" },
+		"context": [
+			{ "key": "setting.auto_indent", "operator": "equal", "operand": true, "match_all": true},
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "auto_complete_visible", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "source.php", "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "^\\s*\\/\\*{2}$", "match_all": true }
+		]
+	},
+
+	// Extiende un bloque de código añadiendo un asterisco al principio (*)
+	{ "keys": ["enter"], "command": "phpdocs", "args": { "insert": "comment-extend" },
+		"context": [
+			{ "key": "setting.auto_indent", "operator": "equal", "operand": true, "match_all": true},
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "auto_complete_visible", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "source.php comment.block", "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "^\\s*\\*\\s", "match_all": true }
+		]
+	},
+]
