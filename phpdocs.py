@@ -30,7 +30,7 @@ class phpdocsCommand(sublime_plugin.TextCommand):
 		write(view, " // $0")
 
 	def commentInline(self, view):
-		write(view, " " + self.contentLine() + "$0 */")
+		write(view, " ${1:" + self.contentLine() + "} */")
 
 	def commentMultiline(self, view):
 		snippet = "\n"
